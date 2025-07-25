@@ -1,3 +1,9 @@
+"""
+Level layout image Pos
+(235, 84) to (1687, 907)
+
+"""
+
 import pyautogui
 import keyboard
 import mouse
@@ -21,26 +27,8 @@ def capture_image():
     if not os.path.exists("Images/temp"):
         os.makedirs("Images/temp")            
     
-    # Wait for right mouse button press            
-    print("Click and drag to select area...")
-    global start_pos
-    start_pos = None
-    mouse.hook(on_click)            
-    
-    # Wait for mouse press
-    while start_pos is None:
-        time.sleep(0.1)
-        if keyboard.is_pressed('esc'):
-            mouse.unhook(on_click)
-            return                 
-    
-    # Wait for mouse release            
-    while mouse.is_pressed("right"):                
-        time.sleep(0.1)            
-    
-    # Get end position            
-    end_pos = mouse.get_position()        
-    mouse.unhook(on_click)            
+    start_pos = (235, 84)
+    end_pos = (1687, 907)
     
     # Calculate region            
     x = min(start_pos[0], end_pos[0])            
